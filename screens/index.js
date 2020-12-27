@@ -1,8 +1,8 @@
 import Home from "./Home";
-import PlantDetail from "./PlantDetail";
-import ProductList from './List'
+import Contact from "./Contact";
+import ProductList from './ProductList'
 export {
     Home,
     ProductList,
-    PlantDetail
+    Contact
 };

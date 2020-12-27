@@ -11,7 +11,7 @@ import {
 // import moduleName from "module";
 import { images, COLORS, SIZES, FONTS } from "../constants";
 
-function List({ navigation:{navigate} }) {
+function ProductList() {
   const [list, setList] = useState([
     { id: 1, image: images.img1, Title: " Bundle" },
     { id: 2, image: images.img2, Title: "Rubber bush" },
@@ -23,7 +23,7 @@ function List({ navigation:{navigate} }) {
   return (
     <View
       style={{
-        height: 700,
+        height:"100%",
         backgroundColor: "#74FA9E",
       }}
     >
@@ -53,7 +53,7 @@ function List({ navigation:{navigate} }) {
                 }}
               />
               <View style={styles.cardBody}>
-                <Text style={{ fontSize: FONTS.body3 }}>{item.Title}</Text>
+                <Text style={{ fontSize: SIZES.body3 }}>{item.Title}</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -67,4 +67,4 @@ export const styles = StyleSheet.create({
     padding: 20,
   },
 });
-export default List;
+export default ProductList;
