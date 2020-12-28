@@ -24,6 +24,16 @@ export default function Home({ navigation }) {
   ]);
   return (
     <View style={styles.container}>
+      {/* <TouchableOpacity onPress={()=>{
+        navigation.openDrawer()
+      }}>
+        <Text>Menu</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+        navigation.navigate('Contact')
+      }}>
+        <Text>Products</Text>
+        </TouchableOpacity> */}
         <Text style={{
             fontSize:SIZES.h1,
             color:COLORS.secondary,
@@ -65,7 +75,7 @@ export default function Home({ navigation }) {
           data={pros}
           renderItem={(item)=>(
             <TouchableOpacity onPress={()=>{
-              navigation.navigate('Contact')
+              navigation.navigate('ProductList')
             }}>
               <View style={{
                 margin:20,
@@ -88,6 +98,5 @@ const styles = StyleSheet.create({
   container: {
     flex:1
   },
-  header: {
-  },
+ 
 });

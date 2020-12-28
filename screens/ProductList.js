@@ -11,7 +11,7 @@ import {
 // import moduleName from "module";
 import { images, COLORS, SIZES, FONTS } from "../constants";
 
-function ProductList() {
+function ProductList({navigation}) {
   const [list, setList] = useState([
     { id: 1, image: images.img1, Title: " Bundle" },
     { id: 2, image: images.img2, Title: "Rubber bush" },
@@ -31,7 +31,9 @@ function ProductList() {
         keyExtractor={(item) => item.id}
         data={list}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{
+            navigation.navigate('Single')
+          }}>
             <View
               style={{
                 width: "90%",

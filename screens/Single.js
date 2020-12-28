@@ -13,7 +13,6 @@ function Single() {
       <View>
         <Image source={images.plant6} style={styles.imgStyle} />
       </View>
-      
       Single Product
     </View>
   );

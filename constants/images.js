@@ -9,17 +9,15 @@ export const img8 = require("../assets/images/imgbundle.jpg");
 export const img9 = require("../assets/images/imgsprinkler.jpg");
 export const img10 = require("../assets/images/mini-micro sprinkler only head.jpeg");
 
-
-
 export default {
-    img1,
-    img2,
-    img3,
-    img4,
-    img5,
-    img6,
-    img7,
-    img8,
-    img9,
-    img10,
-}
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+};
