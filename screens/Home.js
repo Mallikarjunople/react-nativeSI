@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
   View,
@@ -8,7 +9,9 @@ import {
   StyleSheet,
   FlatList,
   ImageBackground,
+  ColorPropType,
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
 
@@ -26,136 +29,200 @@ export default function Home({ navigation }) {
     { id: 8, name: "thie", pic: imag.img8 },
   ]);
   return (
-    <View style={styles.container}>
-      {/* <TouchableOpacity onPress={()=>{
-        navigation.openDrawer()
-      }}>
-        <Text>Menu</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{
-        navigation.navigate('Contact')
-      }}>
-        <Text>Products</Text>
-        </TouchableOpacity> */}
-      <Text
-        style={{
-          fontSize: SIZES.h1,
-          color: COLORS.secondary,
-          fontWeight: "400",
-          margin: 10,
-          padding: 10,
-        }}
-      >
-        Our products
-      </Text>
-      <View>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={pros}
-          renderItem={({item}) => (
-            <TouchableOpacity>
-              <View
-                style={{
-                  marginTop: SIZES.padding,
-                  height: SIZES.height * 0.2,
-                  width: SIZES.width * 0.45,
-                  // backgroundColor: "#000",
-                  marginRight: SIZES.padding,
-                }}
-              >
-                <Image
-                  source={item.pic}
-                  resizeMode="contain"
-                  style={{ width: 250, height: 150 }}
-                />
-              </View>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-      <View>
-        <Text
-          style={{
-            fontSize: SIZES.h1,
-            color: COLORS.secondary,
-            fontWeight: "400",
-            margin: 10,
-            padding: 10,
-          }}
-        >
-          Category
-        </Text>
+    <ImageBackground
+      style={styles.container}
+      source={images.bglogo}
+      resizeMode="cover"
+    >
+      <ScrollView>
         <View
           style={{
-            width: SIZES.width - 10,
-            height: SIZES.height * 0.3,
-            backgroundColor: "#666",
+            padding: SIZES.padding,
             flexDirection: "row",
             justifyContent: "space-around",
             alignItems: "center",
           }}
         >
-          <TouchableOpacity>
-            <View
+          <View>
+            <Text
               style={{
-                width: SIZES.width * 0.4,
-                height: SIZES.height * 0.25,
-                backgroundColor: "#FFF",
-                opacity: 0.2,
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                // padding: 10,
+                fontWeight: "bold",
+                fontSize: SIZES.h2,
+                color: COLORS.secondary,
               }}
             >
-              {/* <ImageBackground
-                source={images.img2}
-                style={{ width: "100%", height: "100%" }}
-              > */}
+              एक पाऊल
+            </Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: SIZES.h2,
+                color: COLORS.secondary,
+              }}
+            >
+              {"   "}प्रगतीशील शेतीकडे...
+            </Text>
+          </View>
+
+          <Image
+            source={images.logo}
+            resizeMode="contain"
+            style={{ width: SIZES.width * 0.2, height: SIZES.height * 0.2 }}
+          />
+        </View>
+        <LinearGradient
+          colors={["#DCE35B", "#45B649"]}
+          start={[1, 0]}
+          end={[0, 0]}
+          style={{
+            width: SIZES.width * 0.95,
+            height: SIZES.height * 0.08,
+            background: "linear-gradient(to right, #43c6ac, #f8ffae)",
+            borderRadius: 5,
+            margin: 10,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: SIZES.h2,
+              color: COLORS.secondary,
+              fontWeight: "bold",
+              padding: 14,
+            }}
+          >
+            आमची उत्पादने
+          </Text>
+        </LinearGradient>
+
+        <View>
+          <FlatList
+            horizontal
+            keyExtractor={(item) => item.id.toString()}
+            showsHorizontalScrollIndicator={false}
+            data={pros}
+            renderItem={({ item }) => (
+              <TouchableOpacity>
+                <View
+                  style={{
+                    marginTop: SIZES.padding,
+                    height: SIZES.height * 0.2,
+                    width: SIZES.width * 0.45,
+                    marginRight: SIZES.padding,
+                  }}
+                >
+                  <Image
+                    source={item.pic}
+                    resizeMode="contain"
+                    style={{ width: 250, height: 150 }}
+                  />
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View>
+          <LinearGradient
+            colors={["#DCE35B", "#45B649"]}
+            start={[1, 0]}
+            end={[0, 0]}
+            style={{
+              width: SIZES.width * 0.95,
+              height: SIZES.height * 0.08,
+              background: "linear-gradient(to right, #43c6ac, #f8ffae)",
+              borderRadius: 5,
+              margin: 10,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: SIZES.h2,
+                color: COLORS.secondary,
+                fontWeight: "bold",
+                padding: 14,
+              }}
+            >
+              उत्पादन प्रकार
+            </Text>
+          </LinearGradient>
+
+          <View
+            style={{
+              width: SIZES.width - 10,
+              height: SIZES.height * 0.3,
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            <TouchableOpacity>
+              <LinearGradient
+                colors={["#00f260", "#0575e6"]}
+                start={[1, 0]}
+                end={[0, 0]}
+                style={{
+                  width: SIZES.width * 0.4,
+                  height: SIZES.height * 0.25,
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: 20,
+                  padding: 5,
+                }}
+              >
                 <Text
                   style={{
-                    backgroundColor: "#555",
+                    fontSize: SIZES.width * 0.05,
+                    fontWeight: "bold",
+                    color: COLORS.secondary,
+                  }}
+                >
+                  आमची उत्पादने
+                </Text>
+                <Image
+                  source={images.logo}
+                  resizeMode="contain"
+                  style={{
+                    width: SIZES.width * 0.15,
+                    height: SIZES.height * 0.15,
+                  }}
+                />
+              </LinearGradient>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push("ProductList");
+              }}
+            >
+              <LinearGradient
+                colors={["#00f260", "#0575e6"]}
+                start={[0, 0]}
+                end={[1, 0]}
+                style={{
+                  width: SIZES.width * 0.4,
+                  height: SIZES.height * 0.25,
+                  backgroundColor: "#333",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  borderRadius: 25,
+                  padding: 4,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "bold",
                     fontSize: SIZES.width * 0.05,
                   }}
                 >
-                  Shivdatt Irrigation
+                  इतर उत्पादने
                 </Text>
-              {/* </ImageBackground> */}
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              navigation.push("ProductList");
-            }}
-          >
-            <View
-              style={{
-                width: SIZES.width * 0.4,
-                height: SIZES.height * 0.25,
-                backgroundColor: "#333",
-                backgroundColor: "#FFF",
-                // opacity: 0.2,
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                padding: 4,
-              }}
-            >
-              <Text
-                style={{
-                  backgroundColor: "#555",
-                  fontSize: SIZES.width * 0.05,
-                }}
-              >
-                Other Products
-              </Text>
-            </View>
-          </TouchableOpacity>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </View>
+      </ScrollView>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({

@@ -7,13 +7,14 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  ImageBackground,
 } from "react-native";
 // import moduleName from "module";
 import { images, COLORS, SIZES, FONTS } from "../constants";
 
-function ProductList({navigation}) {
+function ProductList({ navigation }) {
   const [list, setList] = useState([
-    { id: 1, image: images.img1, Title: " Bundle" },
+    { id: 1, image: images.img1, Title: " एक" },
     { id: 2, image: images.img2, Title: "Rubber bush" },
     { id: 3, image: images.img3, Title: "Connnector" },
     { id: 4, image: images.img4, Title: "Bundle " },
@@ -21,19 +22,26 @@ function ProductList({navigation}) {
     { id: 6, image: images.img6, Title: "HDPE Pipe" },
   ]);
   return (
-    <View
+    <ImageBackground
+      source={images.bglogo}
+      resizeMode="cover"
       style={{
-        height:"100%",
-        backgroundColor: "#74FA9E",
+        height: "100%",
+        width: "100%",
       }}
     >
       <FlatList
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         data={list}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={()=>{
-            navigation.navigate('Single')
-          }}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Single", {
+                image: item.image,
+                name: item.Title,
+              });
+            }}
+          >
             <View
               style={{
                 width: "90%",
@@ -61,7 +69,7 @@ function ProductList({navigation}) {
           </TouchableOpacity>
         )}
       />
-    </View>
+    </ImageBackground>
   );
 }
 export const styles = StyleSheet.create({

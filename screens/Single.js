@@ -1,20 +1,38 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from "react-native";
-import { icons, images, theme, COLORS, SIZES, FONTS } from '../constants';
+import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
 
-function Single() {
+function Single({ route, navigation }) {
+  const { image, name } = route.params;
+
   return (
-    <View>
+    <ImageBackground
+      source={images.bglogo}
+      resizeMode="cover"
+      style={{
+        background:
+          "linear-gradient(360deg, rgba(63, 227, 115, 0.674589) 0%, #FFFFFF 100%)",
+        width: SIZES.width,
+        height: SIZES.height,
+        padding: SIZES.padding,
+        flex: 1,
+        justifyContent: "flex-start",
+        alignItems: "center",
+      }}
+    >
       <View>
-        <Image source={images.plant6} style={styles.imgStyle} />
+        <Image source={image} resizeMode="contain" style={styles.imgStyle} />
       </View>
-      Single Product
-    </View>
+      <View>
+        <Text style={{ fontWeight: "bold" }}> {name}</Text>
+      </View>
+      <View>
+        <Text style={{ fontWeight: "bold" }}> Use</Text>
+      </View>
+      <View>
+        <Text style={{ fontWeight: "bold" }}> Product chi Mahiti</Text>
+      </View>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({
