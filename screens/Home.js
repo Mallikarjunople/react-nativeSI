@@ -77,7 +77,6 @@ export default function Home({ navigation }) {
           style={{
             width: SIZES.width * 0.95,
             height: SIZES.height * 0.08,
-            background: "linear-gradient(to right, #43c6ac, #f8ffae)",
             borderRadius: 5,
             margin: 10,
           }}
@@ -128,7 +127,6 @@ export default function Home({ navigation }) {
             style={{
               width: SIZES.width * 0.95,
               height: SIZES.height * 0.08,
-              background: "linear-gradient(to right, #43c6ac, #f8ffae)",
               borderRadius: 5,
               margin: 10,
             }}
